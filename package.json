@@ -6,10 +6,10 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
-    "build:win": "electron-builder --win",
+    "build:win": "set CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --win --config.asar=false",
     "build:mac": "electron-builder --mac",
     "build:linux": "electron-builder --linux",
-    "build:all": "electron-builder --win --mac --linux"
+    "build:all": "set CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --win --mac --linux --config.asar=false"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,8 @@
     ],
     "win": {
       "icon": "icon/eaglercraft-win-256.ico",
-      "target": ["nsis", "portable"]
+      "target": ["nsis", "portable"],
+      "signAndEditExecutable": false
     },
     "mac": {
       "icon": "icon/eaglercraft-mac.icns",
