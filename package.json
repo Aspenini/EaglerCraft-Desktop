@@ -1,0 +1,52 @@
+{
+  "name": "eaglercraft-desktop",
+  "version": "1.8.8",
+  "description": "Minecraft browser edition, bundled as executable for desktop use!",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --win --mac --linux"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aspenini/EaglerCraft-Desktop.git"
+  },
+  "author": "Aspenini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aspenini/EaglerCraft-Desktop/issues"
+  },
+  "homepage": "https://github.com/Aspenini/EaglerCraft-Desktop#readme",
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.aspenini.eaglercraftdesktop",
+    "productName": "EaglerCraft Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!README.md"
+    ],
+    "win": {
+      "icon": "icon/eaglercraft-win-256.ico",
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "icon": "icon/eaglercraft-mac.icns",
+      "target": ["dmg", "zip"]
+    },
+    "linux": {
+      "icon": "icon/icons",
+      "target": ["AppImage", "deb", "rpm"]
+    }
+  }
+}
